@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>付款</title>
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<header class="ui-header ui-header-positive ui-border-b">
+    <i class="ui-icon-return" onclick="history.back()"></i>
+    <h1>付款</h1>
+</header>
+<section class="ui-container">
+    <ul class="ui-list ui-list-link ui-border-b">
+        <li class="list-divider">选择支付方式 <span class="pull-right ui-txt-warning">88元</span></li>
+        <li class="paylisty">
+            <div class="ui-list-img list-img-icon">
+                <span style="background-image:url(../images/i3.png)"></span>
+            </div>
+            <a id="J_goPay" href="" class="ui-list-info">
+                <h4 class="ui-nowrap">融数支付</h4>
+
+                <p class="ui-nowrap">融数金服安全支付</p>
+            </a>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-list-img list-img-icon">
+                <span style="background-image:url(../images/i4.jpg)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">支付宝支付</h4>
+
+                <p class="ui-nowrap">融数金服安全支付</p>
+            </div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-list-img list-img-icon">
+                <span style="background-image:url(../images/i5.jpg)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">微信支付</h4>
+
+                <p class="ui-nowrap">融数金服安全支付</p>
+            </div>
+        </li>
+    </ul>
+</section>
+<script src="js/lib/md5.js"></script>
+<script>
+	localStorage.removeItem('userData');
+
+    var data = { // 第三方提供数据
+        "ordertime": "2015-09-28 12:11:11", 
+        "productid": "1",
+        "rootinstcd": "M00001",
+        "userid": "ios15", 
+        "userorderid": "D000001",
+        "userrelateid": "UL00001",   
+        "amount": "1000",
+        "unitprice": "1000",
+        "usertype":'2'
+//        "md5key":'1234567qweasdzxc'
+    };
+    var str=''; 
+    for(var i in data){
+        str+=i+'='+data[i]+'&';
+    }
+
+    var md5key='1234567qweasdzxc'; 
+    var signcode=CryptoJS.MD5(data.ordertime+data.productid+data.rootinstcd+data.userid+data.userorderid+data.userrelateid+data.amount+data.unitprice+md5key);
+
+    document.querySelector('#J_goPay').href=encodeURI('./index.html?'+str+'signcode='+signcode);
+
+</script>
+</body>
+</html>
+

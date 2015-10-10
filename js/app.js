@@ -1,25 +1,36 @@
 define(
-    ["angular",
-        "ngRoute",
-        "Services/services",
-        "Directives/directives",
-        "Filters/filters",
-        "Controllers/controllers"
+    ['angular',
+        'ngRoute',
+        'ngStorage',
+        'Services/services',
+        'Directives/directives',
+        'Filters/filters',
+        'Controllers/controllers' 
     ],
 
-    function(angular, ngRoute, Services, Directives, Filters) {
+    function(angular, ngRoute, ngStorage, Services, Directives, Filters) {
         var initialize = function () {
 
-            var app = angular.module('myApp', ['ngRoute']).config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+            var app = angular.module('rsjfApp', ['ngRoute','ngStorage']).config(['$routeProvider', function ($routeProvider) {
 
                 $routeProvider.when('/', {
-                    templateUrl: '/templates/Main.html',
-                    controller: MainCtrl
+                    templateUrl: '/templates/confirm_pay_1.html',
+                    controller: ConfirmPay1Ctrl,
+                    controllerAs:'vm'
+                }).
+                when('/bind', {
+                    templateUrl: '/templates/bind.html',
+                    controller: BindCtrl,
+                    controllerAs:'vm'
+                }).
+                when('/confirm_pay_2', {
+                    templateUrl: '/templates/confirm_pay_2.html',
+                    controller: ConfirmPay2Ctrl,
+                    controllerAs:'vm'
                 });
 
                 $routeProvider.otherwise({redirectTo: '/'});
 
-                $locationProvider.html5Mode(true);
 
             }]);
 
@@ -28,7 +39,7 @@ define(
             app.factory(Services);
             app.directive(Directives);
 
-            angular.bootstrap(document, ["myApp"]);
+            angular.bootstrap(document, ['rsjfApp']);
 
         };
         return {

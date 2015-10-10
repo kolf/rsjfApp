@@ -1,0 +1,35 @@
+<header class="ui-header ui-header-positive ui-border-b">
+    <i class="ui-icon-return" onclick="history.back()"></i>
+    <h1>{{vm.sub_title}}</h1>
+</header>
+<section class="ui-container">
+    <ul class="ui-list ui-list-text ui-border-b bg-transparent">
+        <li class="list-divider text-center list-divider-icon"><i class="icon-safety"></i><span>您正在安全支付环境中，请放心支付
+        </span></li>
+        <li class="">
+            <div class="ui-tips ui-tips-success">
+                <div class="text-sm ui-txt-info"> 付款金额</div>
+                <h2 class="text-x2 ui-txt-warning" id="J_money"></h2>
+            </div>
+        </li>
+    </ul>
+    <ul class="ui-list ui-list-text bg-transparent">
+        <li> <div class="text-sm ui-flex ui-flex-pack-center" id="J_certificatenumber">
+
+        </div></li>
+    </ul>
+    <div class="ui-tips bg-white ui-border-tb">
+        <div class="pad-bottom text-center">请输入支付密码</div>
+        <div class="pay-input J_pay-input_1">
+            <ul class="ui-tiled">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <input type="tel"/>
+        </div>
+    </div>
+</section>
