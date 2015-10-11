@@ -11226,8 +11226,8 @@ function $IntervalProvider() {
       *       <label>Date format: <input ng-model="format"></label> <hr/>
       *       Current time is: <span my-current-time="format"></span>
       *       <hr/>
-      *       Blood 1 : <font color='red'>{{blood_1}}</font>
-      *       Blood 2 : <font color='red'>{{blood_2}}</font>
+      *       Blood 1 : <fonts color='red'>{{blood_1}}</fonts>
+      *       Blood 2 : <fonts color='red'>{{blood_2}}</fonts>
       *       <button type="button" data-ng-click="fight()">Fight</button>
       *       <button type="button" data-ng-click="stopFight()">StopFight</button>
       *       <button type="button" data-ng-click="resetFight()">resetFight</button>
@@ -22723,7 +22723,7 @@ function classDirective(name, selector) {
            text-decoration: line-through;
        }
        .bold {
-           font-weight: bold;
+           fonts-weight: bold;
        }
        .red {
            color: red;
@@ -22793,7 +22793,7 @@ function classDirective(name, selector) {
 
        .base-class.my-class {
          color: red;
-         font-size:3em;
+         fonts-size:3em;
        }
      </file>
      <file name="protractor.scripts" type="protractor">
