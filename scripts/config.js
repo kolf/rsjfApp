@@ -1,11 +1,11 @@
 // Require JS  Config File
 
 require.config({
-    baseUrl: 'js/',
+    baseUrl: 'scripts/',
     paths : {
-        //'zepto':'lib/zepto',
-        'angular' : 'lib/angular',
-        'ngRoute':'lib/angular-route',
+        //'zepto':'vendor/zepto',
+        'angular' : 'vendor/angular',
+        'ngRoute':'vendor/angular-route',
         'ngStorage':'https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.9/ngStorage.min'
     },
     shim : {
