@@ -722,7 +722,7 @@ em, i {
 @charset "UTF-8";
 @font-face {
     font-family: iconfont;
-    src: url(../font/iconfont.ttf) format("truetype")
+    src: url(../fonts/iconfont.ttf) format("truetype")
 }
 
 .ui-icon, [class^=ui-icon-] {
@@ -754,7 +754,7 @@ em, i {
 
 @font-face {
     font-family: iconfont;
-    src: url(../font/iconfont-full.ttf) format("truetype")
+    src: url(../fonts/iconfont-full.ttf) format("truetype")
 }
 
 .ui-icon, [class^=ui-icon-] {

@@ -63,7 +63,7 @@
             </label>
 
             <div class="ui-select-group ui-row-flex">
-                <div class="ui-select ui-col ui-flex">
+                <div class="ui-select ui-col ui-flex J_select_4" ng-click="vm.goProvinceList()">
                     <span ng-model="">选择省</span><span ng-model="">选择市</span>
                 </div>
             </div>
@@ -74,7 +74,7 @@
             </label>
             <div class="ui-select-group ui-row-flex">
                 <div class="ui-select ui-col ui-flex">
-                    <select ng-model="vm.bankbranchVal" ng-options="bankbranch.bankbranchname for bankbranch in vm.bankbranch">
+                    <select ng-model="vm.bankbranchVal" ng-options="bankbranch.bankname for bankbranch in vm.bankbranch">
                         <option value="">选择开户支行</option>
                     </select>
                 </div>
@@ -93,3 +93,5 @@
         </button>
     </div>
 </section>
+
+
