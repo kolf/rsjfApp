@@ -275,8 +275,10 @@ function AgreementCtrl() {
 //设置支付密码
 function SetPasswordCtrl() {
     var vm = this;
+    vm.sub_title = '融数金服';
 
-    vm.sub_title = '融数金服'
+    vm.setPassword='';
+    vm.rePassword='';
 }
 
 //付款结果
