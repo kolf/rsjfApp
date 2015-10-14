@@ -37,6 +37,31 @@ define(
                     templateUrl: '/views/confirm_pay_2.html',
                     controller: ConfirmPay2Ctrl,
                     controllerAs:'vm'
+                }).
+                when('/agreement', {
+                    templateUrl: '/views/agreement_1.html',
+                    controller: AgreementCtrl,
+                    controllerAs:'vm'
+                }).
+                when('/setPassword', {
+                    templateUrl: '/views/setPassword.html',
+                    controller: SetPasswordCtrl,
+                    controllerAs:'vm'
+                }).
+                when('/payResult', {
+                    templateUrl: '/views/payResult.html',
+                    controller: PayResultCtrl,
+                    controllerAs:'vm'
+                }).
+                when('/payResultInfo', {
+                    templateUrl: '/views/payResultInfo.html',
+                    controller: PayResultInfoCtrl,
+                    controllerAs:'vm'
+                }).
+                when('/cardInfo', {
+                    templateUrl: '/views/cardInfo.html',
+                    controller: CardInfoCtrl,
+                    controllerAs:'vm'
                 });
 
                 $routeProvider.otherwise({redirectTo: '/'});

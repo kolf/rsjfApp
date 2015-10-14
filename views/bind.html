@@ -10,7 +10,7 @@
             <label>
                 持卡人
             </label>
-            <input type="text" maxlength="8" required ng-pattern="/^([\u4E00-\u9FA5]{2,5}(?:·[\u4E00-\u9FA5]{2,5})*)$/" placeholder="请填写持卡人" ng-model="vm.accountname" name="accountname">
+            <input type="text" maxlength="8" required ng-pattern="/^([\u4E00-\u9FA5]{2,5}(?:·[\u4E00-\u9FA5]{2,5})*)$/" placeholder="请填写持卡人" ng-model="vm.bindingData.accountname" name="accountname">
             <a href="#" class="ui-icon-close form-icon" ng-class="{'form-icon-info':userForm.accountname.$error.required,'form-icon-error':userForm.accountname.$error.pattern,'form-icon-success':userForm.accountname.$valid}" >
             </a>
         </li>
@@ -18,7 +18,7 @@
             <label>
                 银行卡号
             </label>
-            <input type="tel" maxlength="20" required ng-pattern="/^(\d{16}|\d{19})$/" placeholder="请填写银行卡号" ng-model="vm.accountnumber" name="accountnumber">
+            <input type="tel" maxlength="20" required ng-pattern="/^(\d{16}|\d{19})$/" placeholder="请填写银行卡号" ng-model="vm.bindingData.accountnumber" name="accountnumber">
             <a href="#" class="ui-icon-close form-icon" ng-class="{'form-icon-info':userForm.accountnumber.$error.required,'form-icon-error':userForm.accountnumber.$error.pattern,'form-icon-success':userForm.accountnumber.$valid}" >
             </a>
         </li>
@@ -28,8 +28,8 @@
             </label>
             <div class="ui-select-group ui-row-flex">
                 <div class="ui-select ui-col ui-flex">
-                    <select ng-model="vm.certificatetypeVal"
-                            ng-options="certificatetype.name for certificatetype in vm.certificatetype">
+                    <select ng-model="vm.certificatetypeVal" ng-class="{'ui-txt-muted':!vm.certificatetypeVal}"
+                            ng-options="certificatetype.name for certificatetype in vm.certificatetype" name="certificatetype">
                         <option value="">选择证件类型</option>
                     </select>
                 </div>
@@ -40,7 +40,7 @@
             <label>
                 证件号
             </label>
-            <input type="tel" maxlength="20" required ng-pattern="/(^\d{15}$)|(^\d{17}([0-9]|X)$)/i" placeholder="请填写证件号" ng-model="vm.certificatenumnumber" name="certificatenumnumber">
+            <input type="tel" maxlength="20" required ng-pattern="/(^\d{15}$)|(^\d{17}([0-9]|X)$)/i" placeholder="请填写证件号" ng-model="vm.bindingData.certificatenumnumber" name="certificatenumnumber">
             <a href="#" class="ui-icon-close form-icon" ng-class="{'form-icon-info':userForm.certificatenumnumber.$error.required,'form-icon-error':userForm.certificatenumnumber.$error.pattern,'form-icon-success':userForm.certificatenumnumber.$valid}" >
             </a>
         </li>
@@ -50,7 +50,7 @@
             </label>
             <div class="ui-select-group ui-row-flex">
                 <div class="ui-select ui-col ui-flex">
-                    <select ng-model="vm.bankheadVal" ng-options="bankhead.bankname for bankhead in vm.bankhead">
+                    <select ng-model="vm.bankheadVal" ng-options="bankhead.bankname for bankhead in vm.bankhead" name="bankhead" ng-class="{'ui-txt-muted':!vm.bankheadVal}">
                         <option value="">选择开户总行</option>
                     </select>
 
@@ -64,9 +64,10 @@
 
             <div class="ui-select-group ui-row-flex">
                 <div class="ui-select ui-col ui-flex J_select_4" ng-click="vm.goProvinceList()">
-                    <span ng-model="">选择省</span><span ng-model="">选择市</span>
+                    <span ng-class="{'ui-txt-muted':!vm.city.citycode}">{{vm.city.cityname}}</span><span ng-hide="vm.city.cityname==vm.province.cityname" ng-class="{'ui-txt-muted':!vm.province.citycode}"> {{vm.province.cityname}}</span>
                 </div>
             </div>
+
         </li>
         <li class="ui-form-item">
             <label>
@@ -74,7 +75,7 @@
             </label>
             <div class="ui-select-group ui-row-flex">
                 <div class="ui-select ui-col ui-flex">
-                    <select ng-model="vm.bankbranchVal" ng-options="bankbranch.bankname for bankbranch in vm.bankbranch">
+                    <select ng-model="vm.bankbranchVal" ng-options="bankbranch.bankname for bankbranch in vm.bankbranch" name="bankbranch" ng-class="{'ui-txt-muted':!vm.bankbranchVal}">
                         <option value="">选择开户支行</option>
                     </select>
                 </div>
@@ -83,12 +84,12 @@
     </ul>
     <div class="pad">
         <label class="ui-checkbox-s">
-            <input type="checkbox" name="checkbox" checked _ng-model="vm.agreement">
+            <input type="checkbox" name="checkbox" checked ng-model="vm.agreement">
         </label>
-        同意 <a href="agreement_1.html">《用户协议》</a>
+        同意 <a href="#/agreement">《用户协议》</a>
     </div>
     <div class="ui-btn-wrap">
-        <button class="ui-btn-lg ui-btn-primary" _ng-class="{}">
+        <button class="ui-btn-lg ui-btn-primary" ng-disabled="!(userForm.$valid && vm.certificatetypeVal && vm.bankheadVal && vm.bankbranchVal && vm.city.citycode && vm.province.citycode)">
             下一步
         </button>
     </div>
